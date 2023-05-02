@@ -21,7 +21,7 @@ function App() {
   const[newItemName, setNewItemName] = useState("")
   const[newItemPriority, setNewItemPriority] = useState("")
   
-  // mapping the 
+  // This maps through the array of items and generates li elements with class name based on it's priority level. If it's high it changes styling to red. If low it changes to green.
   const itemNodes = items.map((item, index) => {
     return(
       <li key={index} className={item.priority === "high" ? "high" : "low"}>
@@ -31,15 +31,17 @@ function App() {
     )
   })
 
+  // This handles the changes made in the input field
   const handleItemInput = (event) => {
     setNewItemName(event.target.value)
   }
-
+  // This handles the changes to the radio buttons for item's priority 
   const handlePriorityChange = (event) => {
     setNewItemPriority(event.target.value)
     
   }
 
+  // This state handles the form submissions for adding new items
   const saveNewItem = (event) => {
     event.preventDefault();
     const copyItems = [...items];
@@ -48,7 +50,7 @@ function App() {
     setNewItemName("")
   }
 
-
+// this renders the component
   return (
     <div className="App">
 
